@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block JS_style %}
+<link href="{{url_for('static', filename='styles/app.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div class="wrapper">
+
+  <header>
+    <h1>Web Recorder</h1>
+  </header>
+
+  <p>{{notesToPlay}}</p>
+
+  
+  <form method="POST" action="" enctype = "multipart/form-data" >
+    <input type="file"
+       id="avatar" name="file">
+
+
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+  <section class="main-controls">
+    <canvas class="visualizer" height="60px"></canvas>
+    <div id="buttons">
+      <button class="record">Record</button>
+      <button class="stop">Stop</button>
+    </div>
+  </section>
+
+  <section class="sound-clips">
+
+
+  </section>
+
+</div>
+{% endblock %}
+
+{% block help %}
+<label for="toggle">❔</label>
+<input type="checkbox" id="toggle">
+<aside>
+    <h2>Tutorial</h2>
+    <p class="tutorial"> Pour répondre au jeu, utilisez le dictaphone en ligne pour vous enregistrer.</p>
+    <p class="tutorial"> Après avoir nommé votre enregistrement, cliquez sur "play" pour jouer l'audio. S'il est satisfaisant, cliquez sur les "..." à droite du lecteur, téléchargez le fichier et uploadez-le.</p>
+    <img src="{{url_for('static', filename = 'ressources/tutorial_webRecorder.jpg')}}" alt="Tutorial - Web Recorder">
+</aside>
+{% endblock %}
+
+{% block scripts %}
+<script type=text/javascript src="{{url_for('static', filename='scripts/install.js') }}"></script>
+<script type=text/javascript
+  src="{{url_for('static', filename='scripts/mediaDevices-getUserMedia-polyfill.js') }}"></script>
+<script type=text/javascript src="{{url_for('static', filename='scripts/app.js') }}"></script>
+{% endblock %}

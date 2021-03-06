@@ -1,0 +1,31 @@
+#wrapper
+{
+    display: flex;
+}
+
+.column {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+img {
+  height:auto;
+  width: 100%;
+}
+
+.tutorial {
+  text-align: center;
+}

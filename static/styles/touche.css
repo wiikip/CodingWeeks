@@ -1,0 +1,14 @@
+#touchepiano {
+    padding: 100px 10px;
+    background-color: white;
+}
+#rectangle {  
+    padding : 60px 15px;
+    background-color: black;
+  }
+
+.flexgen {
+    display : flex;
+    justify-content: flex-start;
+    flex-direction: row
+}

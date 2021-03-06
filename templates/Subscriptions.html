@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Top Scores of your subscriptions</h1>
+  <hr>
+  <h2>Summary</h2>
+  <table class="table table-striped table-hover table-bordered table-sm">
+    <thead class='thead-dark'>
+      <tr>
+        <th>Username</th>
+        <th>Best Rank in Game 1</th>
+        <th>Best Score in Game 1</th>
+        <th>Best Rank in Game 2</th>
+        <th>Best Score in Game 2</th>
+      
+      </tr>
+    </thead>
+      {% for sub in Best_of_sub %}
+        <tr>
+          <td><a href = "/scores/{{sub.Username}}">{{sub.Username}}</a></td>
+          <td>{{sub.Bestrnk1}}</td>
+          <td>{{sub.Bestscore1}}</td>
+          <td>{{sub.Bestrnk2}}</td>
+          <td>{{sub.Bestscore2}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <hr>
+    <hr>
+  <h2>Game 1</h2>
+  <table class="table table-striped table-hover table-bordered table-sm">
+  <thead class='thead-dark'>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Reached level</th>
+      <th>Score Date</th>
+    
+    </tr>
+  </thead>
+    {% for i in range(len1)%}
+      <tr>
+        <td>{{i+1}}</td>
+        <td><a href = "/scores/{{Scores1[i].Username}}">{{Scores1[i].Username}}</a></td>
+        <td>{{Scores1[i].Score}}</td>
+        <td>{{Scores1[i].Niveau}}</td>
+        <td>{{Scores1[i].Date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <hr>
+  <h2>Game 2</h2>
+  <table class="table table-striped table-hover table-bordered table-sm">
+    <thead class='thead-dark'>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Reached level</th>
+      <th>Score Date</th>
+    </tr>
+    </thead>
+    {% for i in range(len2)%}
+      <tr>
+        <td>{{i+1}}</td>
+        <td><a href = "/scores/{{Scores2[i].Username}}">{{Scores2[i].Username}}</a></td>
+        <td>{{Scores2[i].Score}}</td>
+        <td>{{Scores2[i].Niveau}}</td>
+        <td>{{Scores2[i].Date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

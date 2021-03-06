@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/touche.css') }}">
+</head>
+<body>
+  <p> Bienvenue au niveau {{level}}</p>
+
+  <audio controls preload ="none">
+    
+    <source src="{{ url_for('static', filename = 'musicNotes/' + slevel + anticache + '.wav') }}" type="audio/wav">
+  Your browser does not support the audio element.
+  
+</audio>
+{% if (gagne == None or gagne == True) %}
+<form action="" method ='POST' class = 'choix'>
+   
+  <div class= 'flexgen'>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[0]}} id ='touchepiano'><font size=2>DO</font>  </button>
+    </div>
+    <div class = 'flexinbis'>
+    <button id="rectangle" type="button" disabled>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[1]}} id ='touchepiano'><font size=2>RE</font>  </button>
+    </div>
+    <div class = 'flexinbis'>
+    <button id="rectangle" type="button" disabled>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[2]}} id ='touchepiano'><font size=2>MI</font>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[3]}} id ='touchepiano'><font size=2>FA</font>  </button>
+    </div>
+    <div class = 'flexinbis'>
+    <button id="rectangle" type="button" disabled>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[4]}} id ='touchepiano'><font size=1>SOL</font> </button>
+    </div>
+    <div class = 'flexinbis'>
+    <button id="rectangle" type="button" disabled>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[5]}} id ='touchepiano'><font size=2>LA</font>  </button>
+    </div>
+    <div class = 'flexinbis'>
+    <button id="rectangle" type="button" disabled>  </button>
+    </div>
+    <div class = 'flexin'>
+    <button name = 'choixnote' value = {{choixNotes[6]}} id ='touchepiano'><font size=2>SI</font>  </button>
+    </div>
+    </div>
+    
+    
+
+
+</form>
+
+<form action = "" method = 'POST'>
+    
+    {%if disabledButton == True%}
+    <button name ="try" value = True disabled> Tente ta chance</button>
+    {%endif%}
+    {%if disabledButton == False%}
+    <button name ="try" value = True > Tente ta chance</button>
+    {%endif%}
+
+    
+    </form>
+<form action ='' method = 'POST'>
+  <button name = 'del' value = True> Supprimer dernière note</button>
+
+</form>
+<p>{{proposition}}</p>
+  {%endif%}
+
+{% if gagne == True %}
+<p>BRAVO!!!!!</p>
+<a href = '/level/{{level+1}}'>Niveau {{level + 1}}</a>
+
+
+{%endif%}
+{%if gagne == False%}
+<p>Perdu :( !<a href = "/level/1">Recommencer ?</a> </p>
+<p><a href = "/scores"> Voir les scores</a></p>
+<form method = 'POST' action = '/score_game_1'>
+<input type = 'hidden' name = 'level' value = '{{level}}'>
+<input type ='submit' value = 'Enregistrer ton score'>
+</form>
+{%endif%}
+
+<div>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+
+
+{%block body%}
+{% if gagne == True %}
+<h2> Bravo, vous avez trouvé la bonne réponse ! &#128079</h2>
+<button onclick="location.href='/2/level/{{lvl}}'" type="button" class="btn btn-success">Passer au niveau suivant</button>
+{%endif%}
+
+{% if gagne == False %}
+<h2> Perdu ! &#128557</h2>
+<button onclick="location.href='/'" type='button' class='btn btn-warning'>Revenir au menu principal</button>
+<a href = '/score_game_2'>Enregistrer le score</a>
+{% endif%}
+{%endblock%}

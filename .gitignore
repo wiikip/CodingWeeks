@@ -1,0 +1,10 @@
+#Env folder
+env/
+
+#Generated image to display
+collageAudioProject.png
+
+__pycache__
+
+#MacOs files
+.DS_Store

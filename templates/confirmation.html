@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div id="wrapper">
+  <div class="column">
+      <img src="{{url_for('static',filename = 'temp/processed_figure.png')}}" alt="Processed figure">
+  </div>
+
+
+  <div class="row">
+      <div class="row">
+          <h3> Results</h3>
+          <p> The algorithm has provided the following results :</p>
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                  <th>Number of detected notes</th>
+                  <th>Sequence of notes</th>
+              </tr>
+            </thead>
+            <tbody class="light">
+              <tr>
+                  <td>{{nbNotes}}</td>
+                  <td>{{notes}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="row">
+          <h3> Are you sure you want to submit this answer?</h3>
+          
+          <button onclick="location.href='/verify';" type="button" class="btn btn-success">Yes</button>
+          <button onclick="location.href='/2/level/{{lvl}}';" type="button" class="btn btn-warning">No</button>
+      </div>
+
+  </div>
+</div>
+{% endblock %}

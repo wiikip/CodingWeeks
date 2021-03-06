@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Top 5 Scores</h1>
+  <hr>
+  <h2>Game 1</h2>
+  <table class="table table-striped table-hover table-bordered table-sm">
+  <thead class='thead-dark'>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Reached level</th>
+      <th>Score Date</th>
+    
+    </tr>
+  </thead>
+    {% for i in range(len1)%}
+      <tr>
+        <td>{{i+1}}</td>
+        <td><a href = "/scores/{{Scores1[i].Username}}">{{Scores1[i].Username}}</a></td>
+        <td>{{Scores1[i].Score}}</td>
+        <td>{{Scores1[i].Niveau}}</td>
+        <td>{{Scores1[i].Date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="/advanced_scores/Game 1">see advanced statistics for Game 1</a>
+  <hr>
+  <h2>Game 2</h2>
+  <table class="table table-striped table-hover table-bordered table-sm">
+    <thead class='thead-dark'>
+    <tr>
+      <th>Rank</th>
+      <th>Username</th>
+      <th>Score</th>
+      <th>Reached level</th>
+      <th>Score Date</th>
+    </tr>
+    </thead>
+    {% for i in range(len2)%}
+      <tr>
+        <td>{{i+1}}</td>
+        <td><a href = "/scores/{{Scores2[i].Username}}">{{Scores2[i].Username}}</a></td>
+        <td>{{Scores2[i].Score}}</td>
+        <td>{{Scores2[i].Niveau}}</td>
+        <td>{{Scores2[i].Date}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="/advanced_scores/Game 2">see advanced statistics for Game 2</a>
+{% endblock %}

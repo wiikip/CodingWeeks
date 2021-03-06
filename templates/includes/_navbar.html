@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Musical Games &#x1F3B8</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Games
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/level/1">Game #1</a>
+          <a class="dropdown-item" href="/2/level/1">Game #2</a>
+          <!--
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+            -->
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Scores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/scores">TOP Scores</a>
+          <a class="dropdown-item" href="/subscriptions">Subscriptions</a>
+        </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About us</a>
+      </li>
+    </ul>
+    {% if request.url == 'http://localhost:5000/' or request.url == 'http://localhost:5000/scores' or request.url == 'http://localhost:5000/about' %}
+    {% if Loged_in == True %}
+    
+    <ul class="nav navbar-nav navbar-right">
+      <li><button type='button' class="btn btn-dark" onclick="location.href='/disconnection'"><span
+            class="glyphicon glyphicon-log-out"></span> Logout</button></li>
+    </ul>
+
+    {% else %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><button onclick="document.getElementById('idSignUp').style.display='block'"><span
+            class="glyphicon glyphicon-user"></span> Sign Up</button></li>
+      <li><button onclick="document.getElementById('idLogIn').style.display='block'"><span
+            class="glyphicon glyphicon-log-in"></span> Login</button></li>
+    </ul>
+    {% endif %}
+    {% else %}
+    <div class = "col-1">
+    <ul class="nav navbar-nav navbar-right">
+      <li><button type='button' class="btn btn-dark" onclick="location.href='/disconnection'"><span
+            class="glyphicon glyphicon-log-out"></span> Logout</button></li>
+    </ul>
+    </div>
+    {% endif %}
+
+  </div>
+</nav>
